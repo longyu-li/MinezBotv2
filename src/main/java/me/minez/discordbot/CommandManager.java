@@ -2,6 +2,7 @@ package me.minez.discordbot;
 
 import me.minez.discordbot.command.CommandContext;
 import me.minez.discordbot.command.ICommand;
+import me.minez.discordbot.command.commands.HelpCommand;
 import me.minez.discordbot.command.commands.PingCommand;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -12,11 +13,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class CommandsManager {
+public class CommandManager {
     private final List<ICommand> commands = new ArrayList<>();
 
-    public CommandsManager() {
+    public CommandManager() {
         addCommand(new PingCommand());
+        addCommand(new HelpCommand(this));
     }
 
     private void addCommand(ICommand cmd) {
@@ -29,8 +31,12 @@ public class CommandsManager {
         commands.add(cmd);
     }
 
+    public List<ICommand> getCommands() {
+        return commands;
+    }
+
     @Nullable
-    private ICommand getCommand(String search) {
+    public ICommand getCommand(String search) {
         String searchLower = search.toLowerCase();
 
         for (ICommand cmd: this.commands) {

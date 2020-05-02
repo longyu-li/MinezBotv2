@@ -13,7 +13,7 @@ import javax.annotation.Nonnull;
 public class Listener extends ListenerAdapter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Listener.class);
-    private final CommandsManager manager = new CommandsManager();
+    private final CommandManager manager = new CommandManager();
 
     @Override
     public void onReady(@Nonnull ReadyEvent event) {
