@@ -2,8 +2,7 @@ package me.minez.discordbot;
 
 import me.minez.discordbot.command.CommandContext;
 import me.minez.discordbot.command.ICommand;
-import me.minez.discordbot.command.commands.HelpCommand;
-import me.minez.discordbot.command.commands.PingCommand;
+import me.minez.discordbot.command.commands.*;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
@@ -19,6 +18,10 @@ public class CommandManager {
     public CommandManager() {
         addCommand(new PingCommand());
         addCommand(new HelpCommand(this));
+        addCommand(new InfoCommand());
+        addCommand(new ClearCommand());
+        addCommand(new SpamCommand());
+        addCommand(new ProfilePictureCommand());
     }
 
     private void addCommand(ICommand cmd) {
