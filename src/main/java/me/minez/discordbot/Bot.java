@@ -14,6 +14,7 @@ public class Bot {
         jda.addEventListener(new Listener());
         jda.getPresence().setStatus(OnlineStatus.ONLINE);
         jda.getPresence().setActivity(Activity.playing("m!help"));
+
     }
     public static void main(String[] args) throws LoginException {
         new Bot();

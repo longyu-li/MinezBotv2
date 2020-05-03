@@ -1,12 +1,13 @@
 package me.minez.discordbot.command;
 
-import me.duncte123.botcommons.commands.ICommandContext;
-import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.sharding.ShardManager;
 
 import java.util.List;
 
-public class CommandContext implements ICommandContext {
+public class CommandContext{
     private final GuildMessageReceivedEvent event;
     private final List<String> args;
 
@@ -15,17 +16,44 @@ public class CommandContext implements ICommandContext {
         this.args = args;
     }
 
-    @Override
+
     public Guild getGuild() {
         return this.getEvent().getGuild();
     }
 
-    @Override
     public GuildMessageReceivedEvent getEvent() {
         return this.event;
     }
 
     public List<String> getArgs() {
         return this.args;
+    }
+
+    public TextChannel getChannel() {
+        return this.getEvent().getChannel();
+    }
+
+    public Message getMessage() {
+        return this.getEvent().getMessage();
+    }
+
+    public JDA getJDA() {
+        return this.getEvent().getJDA();
+    }
+
+    public User getAuthor() {
+        return this.getEvent().getAuthor();
+    }
+
+    public User getSelfUser() {
+        return this.getJDA().getSelfUser();
+    }
+
+    public Member getSelfMember() {
+        return this.getGuild().getSelfMember();
+    }
+
+    public ShardManager getShardManager() {
+        return this.getJDA().getShardManager();
     }
 }

@@ -1,6 +1,5 @@
 package me.minez.discordbot;
 
-import me.duncte123.botcommons.BotCommons;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -34,7 +33,6 @@ public class Listener extends ListenerAdapter {
         if (raw.equalsIgnoreCase(prefix + "shutdown") && event.getAuthor().getId().equals(Config.get("OWNER_ID"))) {
             LOGGER.info("Shutting down");
             event.getJDA().shutdown();
-            BotCommons.shutdown(event.getJDA());
 
             return;
         }
@@ -42,5 +40,21 @@ public class Listener extends ListenerAdapter {
         if (raw.startsWith(prefix)) {
             manager.handle(event);
         }
+
+        // Useless features no one asked for
+
+        if (raw.toLowerCase().equals("hello")) {
+            event.getChannel().sendMessage("world").queue();
+        }
+        if (raw.toLowerCase().equals("owo")) {
+            event.getChannel().sendMessage("whats this?").queue();
+        }
+        if (raw.toLowerCase().equals("suck")) {
+            event.getChannel().sendMessage("monkey balls").queue();
+        }
+//        That's toxic
+//        if (event.getMessage().mentionsEveryone()){
+//            event.getMember().ban(999, "Being a loser");
+//        }
     }
 }

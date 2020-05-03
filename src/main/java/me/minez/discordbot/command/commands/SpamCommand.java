@@ -1,6 +1,5 @@
 package me.minez.discordbot.command.commands;
 
-import me.minez.discordbot.Bot;
 import me.minez.discordbot.Config;
 import me.minez.discordbot.command.CommandContext;
 import me.minez.discordbot.command.ICommand;
