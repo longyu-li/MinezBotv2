@@ -1,9 +1,12 @@
-package me.minez.discordbot.command.commands.Memes;
+package me.minez.discordbot.command.commands.Reddit;
 
 import me.minez.discordbot.command.CommandContext;
 import me.minez.discordbot.command.ICommand;
 
-public class DankMemeCommand extends MemeTemplate implements ICommand {
+import java.util.Arrays;
+import java.util.List;
+
+public class DankMemeCommand extends RedditImageTemplate implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
         super.handle("dankmemes", ctx);
@@ -17,5 +20,10 @@ public class DankMemeCommand extends MemeTemplate implements ICommand {
     @Override
     public String getHelp() {
         return "Posts a random recently popular dank meme";
+    }
+
+    @Override
+    public List<String> getAliases() {
+        return Arrays.asList("dmeme", "dmemes", "dankmemes");
     }
 }

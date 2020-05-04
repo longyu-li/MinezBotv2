@@ -3,10 +3,7 @@ package me.minez.discordbot;
 import me.minez.discordbot.command.CommandContext;
 import me.minez.discordbot.command.ICommand;
 import me.minez.discordbot.command.commands.*;
-import me.minez.discordbot.command.commands.Memes.AnimemeCommand;
-import me.minez.discordbot.command.commands.Memes.DankMemeCommand;
-import me.minez.discordbot.command.commands.Memes.HistoryMemeCommand;
-import me.minez.discordbot.command.commands.Memes.NormalMemeCommand;
+import me.minez.discordbot.command.commands.Reddit.*;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
@@ -30,6 +27,12 @@ public class CommandManager {
         addCommand(new DankMemeCommand());
         addCommand(new NormalMemeCommand());
         addCommand(new HistoryMemeCommand());
+        addCommand(new LeagueMemeCommand());
+        addCommand(new MeirlCommand());
+        addCommand(new AwwCommand());
+        addCommand(new DoggoCommand());
+        addCommand(new CatCommand());
+        addCommand(new WholesomeAnimemeCommand());
     }
 
     private void addCommand(ICommand cmd) {
