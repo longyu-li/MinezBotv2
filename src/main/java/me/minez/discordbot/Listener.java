@@ -49,12 +49,19 @@ public class Listener extends ListenerAdapter {
         if (raw.toLowerCase().equals("owo")) {
             event.getChannel().sendMessage("whats this?").queue();
         }
-        if (raw.toLowerCase().equals("suck")) {
-            event.getChannel().sendMessage("monkey balls").queue();
+        if (raw.toLowerCase().equals("ipad")) {
+            event.getChannel().sendMessage("zombie1").queue();
         }
-//        That's toxic
-//        if (event.getMessage().mentionsEveryone()){
-//            event.getMember().ban(999, "Being a loser");
-//        }
+        if (raw.toLowerCase().contains("kms")) {
+            event.getChannel().sendMessage("Keeping myself safe").queue();
+        }
+        if (raw.toLowerCase().contains("kys")) {
+            event.getChannel().sendMessage("Keep yourself safe").queue();
+        }
+
+        if (raw.toLowerCase().equals("p!catch gardevoir")) {
+            event.getChannel().sendMessage("Congratulations " + event.getAuthor().getAsMention() +"! You caught a level 21 Gardevoir!").queue();
+        }
     }
+
 }

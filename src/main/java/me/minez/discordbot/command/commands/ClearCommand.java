@@ -13,6 +13,9 @@ public class ClearCommand implements ICommand {
 
     @Override
     public void handle(CommandContext ctx) {
+        if (!ctx.getAuthor().getId().equals(Config.get("OWNER_ID"))) {
+            return;
+        }
         List<String> args = ctx.getArgs();
         TextChannel channel = ctx.getChannel();
         if (args.size() < 1) {

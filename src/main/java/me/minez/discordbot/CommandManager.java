@@ -3,7 +3,9 @@ package me.minez.discordbot;
 import me.minez.discordbot.command.CommandContext;
 import me.minez.discordbot.command.ICommand;
 import me.minez.discordbot.command.commands.*;
+import me.minez.discordbot.command.commands.LeagueofLegends.SummonerInfoCommand;
 import me.minez.discordbot.command.commands.Reddit.*;
+import me.minez.discordbot.command.commands.covid19.CoronaSummaryCommand;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
@@ -33,6 +35,9 @@ public class CommandManager {
         addCommand(new DoggoCommand());
         addCommand(new CatCommand());
         addCommand(new WholesomeAnimemeCommand());
+        addCommand(new CoronaSummaryCommand());
+        addCommand(new PokecordFake());
+        addCommand(new SummonerInfoCommand());
     }
 
     private void addCommand(ICommand cmd) {
